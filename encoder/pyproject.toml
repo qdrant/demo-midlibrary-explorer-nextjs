@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "midlibrary-explorer"
+version = "0.1.0"
+description = ""
+authors = ["Qdrant <info@qdrant.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+beautifulsoup4 = "^4.12.2"
+sentence-transformers = "^2.2.2"
+tqdm = "^4.66.1"
+npy-append-array = "^0.9.16"
+qdrant-client = "^1.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
