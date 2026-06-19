@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Fullscreen } from "@mui/icons-material";
+import { Close, Fullscreen } from "@mui/icons-material";
 import Image from "next/image";
 
 const ProminentTooltip = styled(({ className, ...props }) => (
@@ -41,6 +41,16 @@ const ImageCard = ({
   const theme = useTheme();
   const [loaded, setLoaded] = React.useState(false);
   const [modalOpen, setModalOpen] = React.useState(false);
+
+  // Close lightbox on Escape key
+  React.useEffect(() => {
+    if (!modalOpen) return;
+    const handler = (e) => {
+      if (e.key === "Escape") setModalOpen(false);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [modalOpen]);
   const actions = [
     {
       icon: <Fullscreen />,
@@ -152,17 +162,39 @@ const ImageCard = ({
           slotProps={{
             backdrop: {
               style: {
-                backgroundColor: "rgba(0, 0, 0, 0.9)",
+                backgroundColor: "rgba(0, 0, 0, 0.92)",
               },
             },
           }}
         >
-          <Image
-            src={imgObject.image_url}
-            alt={imgObject.name}
-            width={500}
-            height={500}
-          />
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: "95vw", md: "80vw" },
+              height: { xs: "80vh", md: "85vh" },
+              outline: "none",
+            }}
+          >
+            <Image
+              src={imgObject.image_url}
+              alt={imgObject.name}
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="(max-width: 768px) 95vw, 80vw"
+            />
+            <IconButton
+              onClick={() => setModalOpen(false)}
+              sx={{
+                position: "absolute",
+                top: -48,
+                right: 0,
+                color: "white",
+              }}
+              aria-label="Close lightbox"
+            >
+              <Close />
+            </IconButton>
+          </Box>
         </Modal>
       )}
     </Card>

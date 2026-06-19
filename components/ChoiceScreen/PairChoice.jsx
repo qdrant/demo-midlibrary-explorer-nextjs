@@ -13,6 +13,7 @@ const PairChoice = ({
   likeItem,
   searchSimilar,
   skipPair,
+  undoLast,
   resetContext,
   sx,
 }) => {
@@ -51,8 +52,16 @@ const PairChoice = ({
           >
             Skip pair
           </Button>
+          <Button
+            variant={"text"}
+            onClick={undoLast}
+            disabled={!context?.length}
+            sx={{ mr: 2 }}
+          >
+            Undo
+          </Button>
           <Button variant={"text"} onClick={resetContext}>
-            Reset context ({context?.length})
+            Reset ({context?.length})
           </Button>
         </Box>
         <Box
@@ -111,6 +120,7 @@ PairChoice.propTypes = {
   likeItem: PropTypes.func.isRequired,
   searchSimilar: PropTypes.func.isRequired,
   skipPair: PropTypes.func.isRequired,
+  undoLast: PropTypes.func.isRequired,
   resetContext: PropTypes.func.isRequired,
   context: PropTypes.array,
   sx: PropTypes.object,

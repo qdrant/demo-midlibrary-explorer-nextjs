@@ -13,6 +13,7 @@ const ChoiceScreen = ({
   rightItem,
   searchSimilar,
   skipPair,
+  undoLast,
   resetContext,
   context,
 }) => {
@@ -29,6 +30,7 @@ const ChoiceScreen = ({
         rightItem={rightItem}
         searchSimilar={searchSimilar}
         skipPair={skipPair}
+        undoLast={undoLast}
         resetContext={resetContext}
         context={context}
       />
@@ -70,6 +72,7 @@ ChoiceScreen.propTypes = {
   rightItem: PropTypes.object,
   searchSimilar: PropTypes.func.isRequired,
   skipPair: PropTypes.func.isRequired,
+  undoLast: PropTypes.func.isRequired,
   resetContext: PropTypes.func.isRequired,
   context: PropTypes.array,
 };
