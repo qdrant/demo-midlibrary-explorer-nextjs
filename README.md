@@ -2,7 +2,7 @@
 
 <img width="1262" alt="Screenshot 2024-07-25 at 6 14 46 PM" src="https://github.com/user-attachments/assets/b6e97524-dab1-4271-bece-fb10949b54f0">
 
-This is a [demo](https://demo-midlibrary-explorer.vercel.app/) of Discovery Search powered by [Qdrant](https://qdrant.tech). It demonstrates how you can use vector similarity search in a scenario, where it is hard to construct a search query.
+This is a demo of Discovery Search powered by [Qdrant](https://qdrant.tech). It demonstrates how you can use vector similarity search in a scenario, where it is hard to construct a search query.
 
 
 The demo uses the following major components
